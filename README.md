@@ -136,8 +136,8 @@ Key business problems identified:
 ## **Solving Business Problems**
 ```sql
 1-- TOP 10 SELLING PRODUCT
--- Include product name, total quantity sold, and total sales value.
-select*from order_items;
+ -- Include product name, total quantity sold, and total sales value.
+ select*from order_items;
 
  -- CREATING NEW COLUMN
  alter table order_items
@@ -169,13 +169,13 @@ select*from order_items;
  2-- REVENUE BY CATEGORY
  -- Include the percentage contribution of each category to total revenue.
  select c.category_name,sum(oi.total_sale),round(sum(oi.total_sale)/(select sum(total_sale) from order_items)*100) as contribution
-from products as p
-join category as c
-on p.category_id=c.category_id
-join order_items as oi
-on oi.product_id=p.product_id
-group by 1
-order by 3 desc;
+ from products as p
+ join category as c
+ on p.category_id=c.category_id
+ join order_items as oi
+ on oi.product_id=p.product_id
+ group by 1
+ order by 3 desc;
 
 3-- AVERAGE ORDER VALUE (AOV)
 -- Include only customers with more than 5 orders.
